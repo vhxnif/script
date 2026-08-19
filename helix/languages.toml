@@ -1,0 +1,78 @@
+#####################
+## language server ##
+#####################
+
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+config = {typescript = {tsdk = "/Users/chen/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
+
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy"]
+
+[language-server.zed-vtsls]
+command = "nu"
+args = ["~/.dev/script/lang/lsp/vtsls.nu"]
+
+[language-server.nu-lsp]
+command = "nu"
+args = ["--no-config-file", "--lsp"]
+
+# python
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+#################################
+## configuration for languages ##
+################################
+[[language]]
+name = "typescript"
+language-servers = [ "zed-vtsls", "biome" ]
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.ts"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ "zed-vtsls", "biome" ]
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.ts"] }
+auto-format = true
+
+[[language]]
+name = "haskell"
+formatter = { command = "stylish-haskell" }
+auto-format = true
+
+[[language]]
+name = "nu"
+language-servers = ["nu-lsp"]
+
+[[language]]
+name= "python"
+language-servers = ["pyright", "ruff"]
+formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
+auto-format = true
+
+[[language]]
+name = "astro"
+auto-format = true
+language-servers = [ "astro-ls" ]
+
+[[language]]
+name = "json"
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.json"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.jsonc"] }
+auto-format = true
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }

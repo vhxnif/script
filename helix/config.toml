@@ -1,0 +1,63 @@
+theme = "rose_pine"
+
+[editor]
+cursorline = true
+color-modes = true
+end-of-line-diagnostics = "hint"
+shell = ["nu", "--config", "~/.dev/script/helix/helix_shell.nu", "-c"]
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "underline"
+normal = "block"
+select = "block"
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well:"╎", "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 1500
+
+[editor.soft-wrap]
+enable = true
+
+[editor.file-picker]
+hidden = false
+
+[keys.insert]
+esc = ["normal_mode", ":sh normal-im-switch"]
+
+[keys.normal]
+i = ["insert_mode", ":sh insert-im-switch"] 
+a = ["append_mode", ":sh insert-im-switch"] 
+I = ["insert_at_line_start", ":sh insert-im-switch"]
+A = ["insert_at_line_end", ":sh insert-im-switch"]
+o = ["open_below", ":sh insert-im-switch"]
+O = ["open_above", ":sh insert-im-switch"]
+# C-y = [
+#   ':sh rm --force /tmp/unique-file',
+#   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+#   ':open %sh{open --raw /tmp/unique-file}',
+#   ":redraw",
+#   ":reload-all"
+# ]
+
+[keys.normal."-"]
+t = [":sh ict -sf ts r#'%{selection}'#"]
+r = [":pipe ict -sf ts"]
+- = [":reload-all"]
+
+[keys.select."-"]
+t = [":sh ict -sf ts r#'%{selection}'#"]
+r = [":pipe ict -sf ts"]

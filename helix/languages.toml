@@ -5,15 +5,15 @@
 [language-server.astro-ls]
 command = "astro-ls"
 args = ["--stdio"]
-config = {typescript = {tsdk = "/Users/chen/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
+config = { typescript = {tsdk = "/Users/chen/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
 
 [language-server.biome]
 command = "biome"
 args = ["lsp-proxy"]
 
 [language-server.zed-vtsls]
-command = "nu"
-args = ["~/.dev/script/lang/lsp/vtsls.nu"]
+command = "bun"
+args = [ "/Users/chen/Library/Application Support/Zed/languages/vtsls/node_modules/@vtsls/language-server/bin/vtsls.js", "--stdio" ]
 
 [language-server.nu-lsp]
 command = "nu"

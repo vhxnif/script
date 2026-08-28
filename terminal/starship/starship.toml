@@ -1,0 +1,23 @@
+add_newline = false
+
+format = """$directory\
+  $git_branch\
+  $bun\
+  $nodejs\
+  $java\
+  $line_break\
+  $character"""
+
+[directory]
+style = "blue"
+truncation_symbol = "../"
+
+[git_branch]
+symbol = " "
+style = "purple"
+
+# ---------- Prompt ----------
+[character]
+success_symbol = "[󰑩](bold green)"
+error_symbol = "[󱖣](bold red)"
+

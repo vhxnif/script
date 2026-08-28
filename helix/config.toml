@@ -18,7 +18,7 @@ select = "block"
 
 [editor.indent-guides]
 render = true
-character = "┊" # Some characters that work well:"╎", "▏", "┆", "┊", "⸽"
+character = "┊" 
 skip-levels = 1
 
 [editor.inline-diagnostics]
@@ -45,19 +45,19 @@ I = ["insert_at_line_start", ":sh insert-im-switch"]
 A = ["insert_at_line_end", ":sh insert-im-switch"]
 o = ["open_below", ":sh insert-im-switch"]
 O = ["open_above", ":sh insert-im-switch"]
-# C-y = [
-#   ':sh rm --force /tmp/unique-file',
-#   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
-#   ':open %sh{open --raw /tmp/unique-file}',
-#   ":redraw",
-#   ":reload-all"
-# ]
+C-y = [
+  ':sh rm --force /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':open %sh{open --raw /tmp/unique-file}',
+  ":redraw",
+  ":reload-all"
+]
 
 [keys.normal."-"]
-t = [":sh ict -sf ts r#'%{selection}'#"]
-r = [":pipe ict -sf ts"]
+t = [":sh ict -scf ts r#'%{selection}'#"]
+r = [":pipe ict -scf ts"]
 - = [":reload-all"]
 
 [keys.select."-"]
-t = [":sh ict -sf ts r#'%{selection}'#"]
-r = [":pipe ict -sf ts"]
+t = [":sh ict -scf ts r#'%{selection}'#"]
+r = [":pipe ict -scf ts"]
